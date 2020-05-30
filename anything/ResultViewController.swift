@@ -26,23 +26,23 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let number = Int.random(in: 0..<10)
+        let number = Int.random(in: 0..<5)
         
-        monsterArray = [UIImage(named: "monster001.jpg")!,
-                        UIImage(named: "monster002.jpg")!,
-                        UIImage(named: "monster003.jpg")!,
-                        UIImage(named: "monster004.jpg")!,
-                        UIImage(named: "monster005.jpg")!,
-                        UIImage(named: "monster006.jpg")!,
-                        UIImage(named: "monseter007.jpg")!,
-                        UIImage(named: "monster009.jpg")!,
-                        UIImage(named: "monster010.jpg")!]
+        monsterArray = [UIImage(named: "dice001.jpg")!,
+                        UIImage(named: "dice002.jpg")!,
+                        UIImage(named: "dice003.jpg")!,
+                        UIImage(named: "dice004.jpg")!,
+                        UIImage(named: "dice005.jpg")!,
+                        UIImage(named: "dice006.jpg")!,
+                        UIImage(named: "dice007.jpg")!,
+                        UIImage(named: "dice009.jpg")!,
+                        UIImage(named: "dice010.jpg")!]
         
         monsterImageView.image = monsterArray[number]
         
-        if number == 9{
+        if number == 5{
             haikeiImageView.image = UIImage(named: "bg_gold.png")
-        }else if number > 6 {
+        }else if number > 3 {
             haikeiImageView.image = UIImage(named: "bg_red.png")
         }else{
             haikeiImageView.image = UIImage(named: "bg_blue.png")
