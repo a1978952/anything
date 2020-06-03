@@ -16,29 +16,27 @@ class ResultViewController: UIViewController {
     
     @IBOutlet var haikeiImageView: UIImageView!
     
-    @IBOutlet var monsterImageView: UIImageView!
+    @IBOutlet var diceImageView: UIImageView!
     
-        var monsterArray: [UIImage]!
+        var diceArray: [UIImage]!
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let number = Int.random(in: 0..<5)
         
-        monsterArray = [UIImage(named: "dice001.jpg")!,
+        diceArray = [UIImage(named: "dice001.jpg")!,
                         UIImage(named: "dice002.jpg")!,
                         UIImage(named: "dice003.jpg")!,
                         UIImage(named: "dice004.jpg")!,
                         UIImage(named: "dice005.jpg")!,
-                        UIImage(named: "dice006.jpg")!,
-                        UIImage(named: "dice007.jpg")!,
-                        UIImage(named: "dice009.jpg")!,
-                        UIImage(named: "dice010.jpg")!]
+                        UIImage(named: "dice006.jpg")!,]
         
-        monsterImageView.image = monsterArray[number]
+        
+        diceImageView.image = diceArray[number]
         
         if number == 5{
             haikeiImageView.image = UIImage(named: "bg_gold.png")
@@ -71,7 +69,46 @@ class ResultViewController: UIViewController {
         
             haikeiImageView.layer.add(animation, forKey: nil)
         }
+    
+    
+    
+        @IBOutlet var naiyouLabel: UILabel!
+        @IBOutlet var suuziLabel: UILabel!
+       
+        var isAnswered: Bool = false
+        var wordArray: [Dictionary<String, String>] = []
+        var nowNumber: Int = 0
+        let saveData = UserDefaults.standard
+        
+       
+            
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
+            
+                wordArray.shuffle()
+                suuziLabel.text = wordArray[nowNumber]["suuzi"]
+                naiyouLabel.text = wordArray[nowNumber]["naiyou"]
+            
+            
+            
+            }
+            // Do any additional setup after loading the view.
+
     }
+        
+
+       /*
+          // MARK: - Navigation
+          // In a storyboard-based application, you will often want to do a little preparation before navigation
+          override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+              // Get the new view controller using segue.destination.
+              // Pass the selected object to the new view controller.
+       }
+          */
+    
+    
+    
     
     
     

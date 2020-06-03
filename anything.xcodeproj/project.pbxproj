@@ -36,6 +36,8 @@
 		3445DFCE247B62610005ABEB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445DFCD247B62610005ABEB /* AddViewController.swift */; };
 		3445DFD0247B62860005ABEB /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445DFCF247B62860005ABEB /* ListTableViewController.swift */; };
 		34AA98B42481E6D100F91625 /* dice.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 34AA98B32481E6D100F91625 /* dice.jpeg */; };
+		34AA98B62481F8B700F91625 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA98B52481F8B700F91625 /* ListTableViewCell.swift */; };
+		34AA98B824820A7E00F91625 /* setTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA98B724820A7E00F91625 /* setTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		3445DFCD247B62610005ABEB /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		3445DFCF247B62860005ABEB /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		34AA98B32481E6D100F91625 /* dice.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dice.jpeg; sourceTree = "<group>"; };
+		34AA98B52481F8B700F91625 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		34AA98B724820A7E00F91625 /* setTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +148,9 @@
 				3445DFA5247B558E0005ABEB /* mult */,
 				3445DF75247B555F0005ABEB /* AppDelegate.swift */,
 				3445DF77247B555F0005ABEB /* SceneDelegate.swift */,
+				34AA98B52481F8B700F91625 /* ListTableViewCell.swift */,
 				3445DFCF247B62860005ABEB /* ListTableViewController.swift */,
+				34AA98B724820A7E00F91625 /* setTableViewCell.swift */,
 				3445DFCD247B62610005ABEB /* AddViewController.swift */,
 				3445DF79247B555F0005ABEB /* ViewController.swift */,
 				3445DF7B247B555F0005ABEB /* Main.storyboard */,
@@ -372,6 +378,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34AA98B824820A7E00F91625 /* setTableViewCell.swift in Sources */,
+				34AA98B62481F8B700F91625 /* ListTableViewCell.swift in Sources */,
 				3445DFCE247B62610005ABEB /* AddViewController.swift in Sources */,
 				3445DF7A247B555F0005ABEB /* ViewController.swift in Sources */,
 				3445DF76247B555F0005ABEB /* AppDelegate.swift in Sources */,
@@ -550,14 +558,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = anything/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.fujiwara.lupinus.anything;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.Dice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "L12RukiFujiwara-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -567,14 +580,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = anything/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.fujiwara.lupinus.anything;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.Dice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "L12RukiFujiwara-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dice.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Tzo-2K-sCN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="697"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gt-L8-Mw3">
@@ -105,6 +105,8 @@
                     <connections>
                         <outlet property="haikeiImageView" destination="tcU-co-IJW" id="l4d-Em-v3k"/>
                         <outlet property="monsterImageView" destination="yfG-S7-qGE" id="2Yj-wk-zKt"/>
+                        <outlet property="naiyouLabel" destination="Hd9-Il-0Dq" id="arm-QM-a3b"/>
+                        <outlet property="suuziLabel" destination="0ce-Rc-9K1" id="Aoz-nK-q2O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXt-Am-6bS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -120,13 +122,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G0g-TL-0L9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="G0g-TL-0L9" customClass="ListTableViewCell" customModule="anything" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G0g-TL-0L9" id="pDo-XR-cCc">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G0g-TL-0L9" id="pDo-XR-cCc" customClass="ListTableViewCell" customModule="anything" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nj3-yL-kQS">
+                                            <rect key="frame" x="48" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-MX-AJq">
+                                            <rect key="frame" x="154" y="11" width="245" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <connections>
+                                        <outlet property="naiyouLabel" destination="Yc7-MX-AJq" id="dc9-hX-xGS"/>
+                                        <outlet property="suuziLabel" destination="Nj3-yL-kQS" id="nb7-a0-kKb"/>
+                                    </connections>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="naiyouLabel" destination="Yc7-MX-AJq" id="yeP-1M-g7B"/>
+                                    <outlet property="suuziLabel" destination="Nj3-yL-kQS" id="e1y-Ie-86E"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -135,7 +161,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="一覧" id="esL-hv-SjH">
-                        <barButtonItem key="leftBarButtonItem" title="もどる" id="5kL-Mc-eTB"/>
+                        <barButtonItem key="leftBarButtonItem" title="もどる" id="5kL-Mc-eTB">
+                            <connections>
+                                <action selector="back" destination="TPH-KU-g82" id="tLS-Z8-uZh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bmh-6k-3PB">
                             <connections>
                                 <segue destination="wL9-QF-9Gm" kind="show" id="LPi-pm-zpR"/>
@@ -148,7 +178,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5r-OE-2MJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2024" y="508"/>
+            <point key="canvasLocation" x="2718.840579710145" y="507.58928571428567"/>
         </scene>
         <!--新規追加-->
         <scene sceneID="TTd-73-KJ1">
@@ -202,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LO8-t2-Rle" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2962.3188405797105" y="507.58928571428567"/>
+            <point key="canvasLocation" x="3839" y="508"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4lH-3P-g80">
@@ -213,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="TPH-KU-g82" kind="relationship" relationship="rootViewController" id="OUo-Fm-IYo"/>
+                        <segue destination="TPH-KU-g82" kind="relationship" relationship="rootViewController" id="oxo-Ix-1Xp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXU-nG-6lG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

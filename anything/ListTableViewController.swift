@@ -7,41 +7,81 @@
 //
 
 import UIKit
-
 class ListTableViewController: UITableViewController {
-
+    
+    
+     
+    
+    var wordArray: [Dictionary<String, String>] = []
+    
+    let saveData = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.rowHeight = 70
+        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+        if saveData.array(forKey: "WORD") != nil{
+            wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+       override func numberOfSections(in tableView: UITableView) -> Int {
+       return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return wordArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as!  ListTableViewCell
+        
+        
+        let nowIndexPathDictionary = wordArray[indexPath.row]
+        
+        cell.suuziLabel.text = nowIndexPathDictionary["suuzi"]
+        cell.naiyouLabel.text = nowIndexPathDictionary["naiyou"]
+        
         return cell
+        
+         
     }
-    */
+    @IBAction func back(){
+          self.dismiss(animated: true, completion: nil)
+      }
+    
+    
+    func ListTableView(_ ListTableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+         {
+             return true
+         }
 
+         func ListTableView(_ ListTableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+             if editingStyle == UITableViewCell.EditingStyle.delete {
+                 wordArray.remove(at: indexPath.row)
+                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+             }
+         }
+      
+      
+            
+        }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -87,4 +127,5 @@ class ListTableViewController: UITableViewController {
     }
     */
 
-}
+
+
