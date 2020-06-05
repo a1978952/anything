@@ -71,7 +71,7 @@ class ListTableViewController: UITableViewController {
              return true
          }
 
-         func ListTableView(_ ListTableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
              if editingStyle == UITableViewCell.EditingStyle.delete {
                  wordArray.remove(at: indexPath.row)
                  tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)

@@ -14,12 +14,13 @@ class ResultViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    
     @IBOutlet var haikeiImageView: UIImageView!
     
     @IBOutlet var diceImageView: UIImageView!
     
         var diceArray: [UIImage]!
-    
     
     
     
@@ -39,11 +40,11 @@ class ResultViewController: UIViewController {
         diceImageView.image = diceArray[number]
         
         if number == 5{
-            haikeiImageView.image = UIImage(named: "bg_gold.png")
+            haikeiImageView.image = UIImage(named: "bg_star1.PNG")
         }else if number > 3 {
-            haikeiImageView.image = UIImage(named: "bg_red.png")
+            haikeiImageView.image = UIImage(named: "bg_star.PNG")
         }else{
-            haikeiImageView.image = UIImage(named: "bg_blue.png")
+            haikeiImageView.image = UIImage(named: "bg_star1.PNG")
         }
         
         
@@ -51,7 +52,6 @@ class ResultViewController: UIViewController {
     }
     
 
-    
     override func viewDidAppear(_ animated: Bool){
             super.viewDidAppear(true)
         
@@ -71,7 +71,6 @@ class ResultViewController: UIViewController {
         }
     
     
-    
         @IBOutlet var naiyouLabel: UILabel!
         @IBOutlet var suuziLabel: UILabel!
        
@@ -81,7 +80,6 @@ class ResultViewController: UIViewController {
         let saveData = UserDefaults.standard
         
        
-            
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
@@ -89,7 +87,6 @@ class ResultViewController: UIViewController {
                 wordArray.shuffle()
                 suuziLabel.text = wordArray[nowNumber]["suuzi"]
                 naiyouLabel.text = wordArray[nowNumber]["naiyou"]
-            
             
             
             }
@@ -109,10 +106,6 @@ class ResultViewController: UIViewController {
     
     
     
-    
-    
-    
-    
     /*
     // MARK: - Navigation
 
@@ -122,6 +115,3 @@ class ResultViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-
-
