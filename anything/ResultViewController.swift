@@ -15,7 +15,7 @@ class ResultViewController: UIViewController {
     }
     
     
-    
+    @IBOutlet var syasinnImageView: UIImageView!
     @IBOutlet var haikeiImageView: UIImageView!
     
     @IBOutlet var diceImageView: UIImageView!
@@ -29,22 +29,22 @@ class ResultViewController: UIViewController {
         
         let number = Int.random(in: 0..<5)
         
-        diceArray = [UIImage(named: "dice001.jpg")!,
-                        UIImage(named: "dice002.jpg")!,
-                        UIImage(named: "dice003.jpg")!,
-                        UIImage(named: "dice004.jpg")!,
-                        UIImage(named: "dice005.jpg")!,
-                        UIImage(named: "dice006.jpg")!,]
+        diceArray = [UIImage(named: "dice_1.jpg")!,
+                        UIImage(named: "dice_2.jpg")!,
+                        UIImage(named: "dice_3.jpg")!,
+                        UIImage(named: "crazy_4'.jpg")!,
+                        UIImage(named: "dice_5.jpg")!,
+                        UIImage(named: "daice_6.jpg")!,]
         
         
         diceImageView.image = diceArray[number]
         
         if number == 5{
-            haikeiImageView.image = UIImage(named: "bg_star1.PNG")
+            haikeiImageView.image = UIImage(named: "bg_star.PNG")
         }else if number > 3 {
             haikeiImageView.image = UIImage(named: "bg_star.PNG")
         }else{
-            haikeiImageView.image = UIImage(named: "bg_star1.PNG")
+            haikeiImageView.image = UIImage(named: "bg_star.PNG")
         }
         
         
@@ -82,7 +82,11 @@ class ResultViewController: UIViewController {
        
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
+            
             wordArray = saveData.array(forKey: "WORD") as! [Dictionary<String, String>]
+            
+            
+            
             
                 wordArray.shuffle()
                 suuziLabel.text = wordArray[nowNumber]["suuzi"]
